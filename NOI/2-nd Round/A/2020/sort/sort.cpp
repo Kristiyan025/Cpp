@@ -4,9 +4,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-using ll = long long;
-int n;
-vector<int> a;
+int n, ans = 0, e;
+priority_queue<int> pq;
 
 int main()
 {
@@ -14,25 +13,16 @@ int main()
     cin.tie(NULL);
 
 	cin >>n;
-	a.resize(n);
-	for(int& i : a)
-		cin >>i;
-	for(int i = n - 1; i > 0; i--)
-		a[i] = a[i] - a[i - 1];
-	//for(int& i : a)
-	//	cout <<i <<" "; cout <<endl;
-	ll pos = 0, neg = 0, acc;
-	for(int i = 1; i < n; i++)
-		if(a[i] > 0)
+	for(int i = 0; i < n; i++)
 	{
-		acc = 0;
-		while(i < n && a[i] > 0) acc += a[i], pos += acc, i++;//, (cout <<"acc: " <<acc <<" pos: " <<pos <<endl);
-	} //cout <<"neg:\n";
-	for(int i = 1; i < n; i++)
-		if(a[i] < 0)
-	{
-		acc = 0;
-		while(i < n && a[i] < 0) acc -= a[i], neg += acc, i++;//, (cout <<"acc: " <<acc <<" neg: " <<neg <<endl);
+		cin >>e;
+		if(pq.size() && pq.top() > e)
+		{
+			ans += pq.top() - e;
+			pq.pop();
+			pq.push(e);
+		}
+		pq.push(e);
 	}
-	cout <<min(neg, abs(pos - neg)) <<endl;
+	cout <<ans <<"\n";
 }
