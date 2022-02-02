@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1620363140 source:f:\cpp\sci\a\2021\playlists\playlists\grader.cpp
+	<iostream>
+	<algorithm>
+	<string>
+	<random>
+	"playlists.h"
+
+1620334954 f:\cpp\sci\a\2021\playlists\playlists\playlists.h
+	<vector>
+
+1643719848 source:f:\cpp\sci\a\2021\playlists\playlists\playlists.cpp
+	<bits/stdc++.h>
+	"playlists.h"
+
